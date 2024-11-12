@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres
+    container_name: my_postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres        # Default superuser name
+      POSTGRES_PASSWORD: mypg        # Password for the postgres user
+      POSTGRES_DB: todos             # Default database
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
